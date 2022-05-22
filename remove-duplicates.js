@@ -41,11 +41,26 @@ const dedupeArray = (array, index, resultArray) => {
 		return dedupeArray(array, index, resultArray);
 	} else {
 		return resultArray;
-}
+  }
 }
 
 // test
 console.log(dedupeArray([7, 9, "hi", 12, "hi", 7, 53]));
+
+// expected [9, 12, "hi", 7, 53]
+// received [9, 12, "hi", 7, 53]
+
+// using filter
+
+const filterArrayDuplicates = (array) => {
+  let dedupeArray = array.filter((element, index) => {
+    return array.indexOf(element) === index;
+  });
+  return dedupeArray;
+}
+
+// test
+console.log(filterArrayDuplicates([7, 9, "hi", 12, "hi", 7, 53]));
 
 // expected [9, 12, "hi", 7, 53]
 // received [9, 12, "hi", 7, 53]
